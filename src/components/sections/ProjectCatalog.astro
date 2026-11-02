@@ -1,0 +1,35 @@
+---
+import Badge from '../ui/Badge.astro';
+import type { CatalogEntry } from '../../config/services';
+
+interface Props {
+  title: string;
+  description?: string;
+  entries: readonly CatalogEntry[];
+}
+
+const { title, description, entries } = Astro.props;
+---
+
+<section aria-labelledby={title}>
+  <h2 id={title}>{title}</h2>
+  {description && <p>{description}</p>}
+  <ul class="card-grid">
+    {entries.map((entry) => (
+      <li class="card">
+        <div class="card-header">
+          <h3>{entry.name}</h3>
+          <Badge status={entry.status} />
+        </div>
+        <p>{entry.description}</p>
+        {entry.url ? (
+          <p>
+            <a href={entry.url} target="_blank" rel="noreferrer">Visit</a>
+          </p>
+        ) : (
+          <p class="muted">Public URL not available yet.</p>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>

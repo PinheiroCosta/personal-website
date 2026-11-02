@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCatalog from '../../components/sections/ProjectCatalog.astro';
+import { serviceEntries } from '../../config/services';
+import { siteConfig } from '../../config/site';
+---
+
+<BaseLayout title={`${siteConfig.name} | Services`}>
+  <h1>Services</h1>
+  <p>
+    Public services and applications are listed here. Services remain independent and may be
+    hosted on different platforms.
+  </p>
+  <ProjectCatalog entries={serviceEntries} title="Service catalog" />
+</BaseLayout>

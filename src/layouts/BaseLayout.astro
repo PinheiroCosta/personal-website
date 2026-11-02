@@ -1,0 +1,42 @@
+---
+import SiteHeader from '../components/layout/SiteHeader.astro';
+import SiteFooter from '../components/layout/SiteFooter.astro';
+import '../styles/variables.css';
+import '../styles/global.css';
+import { siteConfig } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = siteConfig.metadata.title,
+  description = siteConfig.metadata.description
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={siteConfig.metadata.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.metadata.author} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteConfig.url} />
+    <meta property="og:image" content={siteConfig.metadata.image} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main class="container page-content">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

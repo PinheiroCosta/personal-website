@@ -1,0 +1,11 @@
+---
+import MainNav from '../navigation/MainNav.astro';
+import { siteConfig } from '../../config/site';
+---
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a class="site-brand" href="/">{siteConfig.name}</a>
+    <MainNav />
+  </div>
+</header>
