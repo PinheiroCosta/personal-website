@@ -1,0 +1,16 @@
+---
+import type { CatalogStatus } from '../../config/services';
+
+interface Props {
+  status: CatalogStatus;
+}
+
+const { status } = Astro.props;
+const labelByStatus: Record<CatalogStatus, string> = {
+  planned: 'Planned',
+  development: 'In Development',
+  available: 'Available'
+};
+---
+
+<span class={`status-badge status-${status}`}>{labelByStatus[status]}</span>

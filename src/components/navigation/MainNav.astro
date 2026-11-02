@@ -1,0 +1,16 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/services/', label: 'Services' }
+] as const;
+---
+
+<nav aria-label="Main navigation">
+  <ul class="main-nav-list">
+    {navItems.map((item) => (
+      <li><a href={item.href}>{item.label}</a></li>
+    ))}
+  </ul>
+</nav>

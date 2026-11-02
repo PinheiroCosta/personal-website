@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ProjectCatalog from '../components/sections/ProjectCatalog.astro';
+import { featuredEntries } from '../config/services';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout title={`${siteConfig.name} | Home`}>
+  <HeroSection />
+
+  <section aria-labelledby="interests">
+    <h2 id="interests">Areas of interest</h2>
+    <ul>
+      <li>[Add area of interest]</li>
+      <li>[Add area of interest]</li>
+      <li>[Add area of interest]</li>
+    </ul>
+  </section>
+
+  <ProjectCatalog
+    title="Selected projects"
+    description="Highlighted work and ongoing initiatives from the independent software ecosystem."
+    entries={featuredEntries}
+  />
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p>Email: {siteConfig.social.email}</p>
+    <p>
+      GitHub:
+      <a href={siteConfig.social.github} target="_blank" rel="noreferrer">{siteConfig.social.github}</a>
+    </p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCatalog from '../components/sections/ProjectCatalog.astro';
+import { projectEntries } from '../config/services';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout title={`${siteConfig.name} | Projects`}>
+  <h1>Projects</h1>
+  <p>
+    This catalog lists independent software projects. Each project remains deployable and
+    operational outside this website.
+  </p>
+  <ProjectCatalog entries={projectEntries} title="Project catalog" />
+</BaseLayout>
